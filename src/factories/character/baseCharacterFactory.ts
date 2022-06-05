@@ -1,4 +1,5 @@
 import { Character } from "../../entities/character/character";
+import { MostValuedPerson } from "../../entities/character/personality";
 import { CharacterProps } from "../../entities/character/types";
 import { OriginFactory } from "../origin";
 import { PersonalityFactory } from "../personality";
@@ -19,6 +20,8 @@ export abstract class BaseCharacterFactory {
         personality,
         personalStyle,
         relationship,
+        mostValuedPerson,
+        mostValuedProfessionYouOwn,
         aims,
         friends,
         enemies,
@@ -42,6 +45,8 @@ export abstract class BaseCharacterFactory {
             personality: personality ?? PersonalityFactory.randomPersonality(),
             personalStyle: personalStyle ?? PersonalStyleFactory.randomPersonalStyle(),
             relationship: relationship ?? PersonalityFactory.randomRelationship(),
+            mostValuedPerson: mostValuedPerson ?? PersonalityFactory.randomMostValuedPerson(),
+            mostValuedProfessionYouOwn: mostValuedProfessionYouOwn ?? PersonalityFactory.randomMostValuedProfessionYouOwn(),
             aims,
             friends,
             enemies,

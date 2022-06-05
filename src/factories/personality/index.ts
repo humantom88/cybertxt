@@ -1,4 +1,4 @@
-import { Motivation, Personality, Relationship } from "../../entities/character/personality";
+import { MostValuedPerson, MostValuedProfessionYouOwn, Motivation, Personality, Relationship } from "../../entities/character/personality";
 import { getRandomInt } from "../../utils";
 
 export class PersonalityFactory {
@@ -29,5 +29,39 @@ export class PersonalityFactory {
         ];
         const randomIndex = getRandomInt(relationshipTypes.length);
         return relationshipTypes[randomIndex];
+    }
+
+    static randomMostValuedPerson(): MostValuedPerson {
+        const mostValuedPersons: Array<MostValuedPerson> = [
+            MostValuedPerson.parent,
+            MostValuedPerson.brotherOrSister,
+            MostValuedPerson.lover,
+            MostValuedPerson.friend,
+            MostValuedPerson.yourself,
+            MostValuedPerson.pet,
+            MostValuedPerson.teacherOrMentor,
+            MostValuedPerson.publicFigure,
+            MostValuedPerson.personalHero,
+            MostValuedPerson.noOne,
+        ]
+        const randomIndex = getRandomInt(mostValuedPersons.length);
+        return mostValuedPersons[randomIndex];
+    }
+
+    static randomMostValuedProfessionYouOwn(): MostValuedProfessionYouOwn {
+        const mostValuedProfessionsYouOwn: Array<MostValuedProfessionYouOwn> = [
+            MostValuedProfessionYouOwn.weapon,
+            MostValuedProfessionYouOwn.tool,
+            MostValuedProfessionYouOwn.pieceOfClothing,
+            MostValuedProfessionYouOwn.photograph,
+            MostValuedProfessionYouOwn.bookOrDiary,
+            MostValuedProfessionYouOwn.recording,
+            MostValuedProfessionYouOwn.musicalInstrument,
+            MostValuedProfessionYouOwn.pieceOfJewelry,
+            MostValuedProfessionYouOwn.toy,
+            MostValuedProfessionYouOwn.letter,
+        ];
+        const randomIndex = getRandomInt(mostValuedProfessionsYouOwn.length);
+        return mostValuedProfessionsYouOwn[randomIndex];
     }
 }

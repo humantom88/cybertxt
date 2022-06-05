@@ -35,3 +35,29 @@ export enum Relationship {
     wipeEmAll = 'Wipe ‘em all out and let the cockroaches take over.',
     wonderful = 'People are wonderful!'
 };
+
+export enum MostValuedPerson {
+    parent = 'A parent',
+    brotherOrSister = 'A brother or sister',
+    lover = 'A lover',
+    friend = 'A friend',
+    yourself = 'Yourself',
+    pet = 'A pet',
+    teacherOrMentor = 'A teacher or mentor',
+    publicFigure = 'A public figure',
+    personalHero = 'A personal hero',
+    noOne = 'No one',
+}
+
+export enum MostValuedProfessionYouOwn {
+    weapon = 'A weapon',
+    tool = 'A tool',
+    pieceOfClothing = 'A piece of clothing',
+    photograph = 'A photograph',
+    bookOrDiary = 'A book or diary',
+    recording = 'A recording',
+    musicalInstrument = 'A musical instrument',
+    pieceOfJewelry = 'A piece of jewelry',
+    toy = 'A toy',
+    letter = 'A letter',
+}

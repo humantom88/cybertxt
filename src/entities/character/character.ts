@@ -1,7 +1,7 @@
 import { Armor } from '../../factories/armor/types';
 import { Weapon } from '../../factories/weapon/types';
 import { Origin } from '../origin/origin';
-import { Motivation, Personality, Relationship } from './personality';
+import { MostValuedPerson, MostValuedProfessionYouOwn, Motivation, Personality, Relationship } from './personality';
 import { PersonalStyle } from './personalStyle';
 import {
     Ability,
@@ -26,6 +26,8 @@ export class Character implements CharacterProps {
     personality: Personality;
     personalStyle: PersonalStyle;
     relationship: Relationship;
+    mostValuedPerson: MostValuedPerson;
+    mostValuedProfessionYouOwn: MostValuedProfessionYouOwn;
     // ===
     aims: string[];
     friends: (string | number)[];
@@ -49,6 +51,8 @@ export class Character implements CharacterProps {
         personality,
         personalStyle,
         relationship,
+        mostValuedPerson,
+        mostValuedProfessionYouOwn,
         origin,
         aims,
         friends,
@@ -69,6 +73,8 @@ export class Character implements CharacterProps {
         this.personality = personality;
         this.personalStyle = personalStyle;
         this.relationship = relationship;
+        this.mostValuedPerson = mostValuedPerson;
+        this.mostValuedProfessionYouOwn = mostValuedProfessionYouOwn;
         this.origin = origin;
         this.aims = aims;
         this.friends = friends;

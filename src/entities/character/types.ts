@@ -1,7 +1,7 @@
 import { Armor } from "../../factories/armor/types";
 import { Weapon } from "../../factories/weapon/types";
 import { Origin } from "../origin/origin";
-import { Motivation, Personality, Relationship } from "./personality";
+import { MostValuedPerson, MostValuedProfessionYouOwn, Motivation, Personality, Relationship } from "./personality";
 import { PersonalStyle } from "./personalStyle";
 
 export enum CharacterClassName {
@@ -55,6 +55,8 @@ export interface CharacterProps {
     origin: Origin;
     personality: Personality,
     personalStyle: PersonalStyle,
+    mostValuedPerson: MostValuedPerson,
+    mostValuedProfessionYouOwn: MostValuedProfessionYouOwn,
     // ----
     aims: string[];
     friends: (string | number)[];
