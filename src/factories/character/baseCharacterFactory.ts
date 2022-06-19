@@ -1,5 +1,4 @@
 import { Character } from "../../entities/character/character";
-import { MostValuedPerson } from "../../entities/character/personality";
 import { CharacterProps } from "../../entities/character/types";
 import { OriginFactory } from "../origin";
 import { PersonalityFactory } from "../personality";

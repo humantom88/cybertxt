@@ -1,4 +1,5 @@
 import { getRandomInt } from "../../utils";
+import { ChildhoodEnvironment, FamilyCrisis, OriginalFamilyBackground } from "../character/personality";
 import { Language } from "./language";
 import { Region } from "./region";
 
@@ -103,29 +104,60 @@ export const REGION_LANGUAGE_MAP: Record<Region, Language[]> = {
 }
 
 export interface OriginProps {
+    childhoodEnvironment?: ChildhoodEnvironment,
     generalCulturalRegion?: Region,
-    originLanguage?: Language
+    originLanguage?: Language,
+    originFamily?: OriginalFamilyBackground,
+    familyCrisis?: FamilyCrisis,
 }
 
 export class Origin {
     private generalCulturalRegion: Region;
     private originLanguage: Language;
+    private originFamily: OriginalFamilyBackground;
+    private childhoodEnvironment: ChildhoodEnvironment;
+    private familyCrisis: FamilyCrisis;
 
     constructor({
         generalCulturalRegion,
         originLanguage,
+        originFamily,
+        childhoodEnvironment,
+        familyCrisis,
     }: OriginProps = {}) {
         this.generalCulturalRegion = generalCulturalRegion ?? this.getRandomCulturalRegion();
         this.originLanguage = originLanguage ?? this.getRandomOriginLanguage(REGION_LANGUAGE_MAP[this.generalCulturalRegion]);
+        this.originFamily = originFamily ?? this.getRandomOriginFamily();
+        this.childhoodEnvironment = childhoodEnvironment ?? this.getRandomChildhoodEnvironment();
+        this.familyCrisis = familyCrisis ?? this.getRandomFamilyCrisis();
     }
 
-    getRandomCulturalRegion(): Region {
+    private getRandomFamilyCrisis(): FamilyCrisis {
+        const familyCrisises: string[] = Object.values(FamilyCrisis)
+        const familyCrisisNumber = getRandomInt(familyCrisises.length);
+        return familyCrisises[familyCrisisNumber] as FamilyCrisis;
+    }
+
+    private getRandomChildhoodEnvironment(): ChildhoodEnvironment {
+        const childhoodEnvironments: string[] = Object.values(ChildhoodEnvironment)
+        const childhoodEnvironmentNumber = getRandomInt(childhoodEnvironments.length);
+        return childhoodEnvironments[childhoodEnvironmentNumber] as ChildhoodEnvironment;
+    }
+
+    private getRandomCulturalRegion(): Region {
         const regions: string[] = Object.values(Region)
         const regionNumber = getRandomInt(regions.length);
         return regions[regionNumber] as Region;
     }
+    
+    private getRandomOriginFamily(): OriginalFamilyBackground {
+        const originFamilyChoices: string[] = Object.values(OriginalFamilyBackground);
+        const originFamilyNumber = getRandomInt(originFamilyChoices.length);
+        return originFamilyChoices[originFamilyNumber] as OriginalFamilyBackground;
+    }
 
-    getRandomOriginLanguage(languages: Language[]): Language {
+
+    private getRandomOriginLanguage(languages: Language[]): Language {
         const languageNumber = getRandomInt(languages.length);
         return languages[languageNumber];
     }
