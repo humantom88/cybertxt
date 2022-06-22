@@ -1,5 +1,11 @@
 import { getRandomInt } from "../../utils";
-import { ChildhoodEnvironment, FamilyCrisis, OriginalFamilyBackground } from "../character/personality";
+import {
+    ChildhoodEnvironment,
+    FamilyCrisis,
+    FriendsRelationToYou,
+    OriginalFamilyBackground
+} from "../character/personality";
+
 import { Language } from "./language";
 import { Region } from "./region";
 
@@ -109,6 +115,7 @@ export interface OriginProps {
     originLanguage?: Language,
     originFamily?: OriginalFamilyBackground,
     familyCrisis?: FamilyCrisis,
+    friendsRelationToYou?: FriendsRelationToYou,
 }
 
 export class Origin {
@@ -117,6 +124,7 @@ export class Origin {
     private originFamily: OriginalFamilyBackground;
     private childhoodEnvironment: ChildhoodEnvironment;
     private familyCrisis: FamilyCrisis;
+    private friendsRelationToYou: FriendsRelationToYou;
 
     constructor({
         generalCulturalRegion,
@@ -124,12 +132,26 @@ export class Origin {
         originFamily,
         childhoodEnvironment,
         familyCrisis,
+        friendsRelationToYou,
     }: OriginProps = {}) {
         this.generalCulturalRegion = generalCulturalRegion ?? this.getRandomCulturalRegion();
         this.originLanguage = originLanguage ?? this.getRandomOriginLanguage(REGION_LANGUAGE_MAP[this.generalCulturalRegion]);
         this.originFamily = originFamily ?? this.getRandomOriginFamily();
         this.childhoodEnvironment = childhoodEnvironment ?? this.getRandomChildhoodEnvironment();
         this.familyCrisis = familyCrisis ?? this.getRandomFamilyCrisis();
+        this.friendsRelationToYou = friendsRelationToYou ?? this.getRandomFriendsRelationToYou();
+    }
+
+    private getRandomEnumValue<E extends { [name: string]: any }>(enumType: E) {
+        const friendsRelationsToYou: string[] = Object.values(enumType);
+        const friendsRelationNumber = getRandomInt(friendsRelationsToYou.length);
+        return friendsRelationsToYou[friendsRelationNumber] as unknown as E;
+    }
+
+    private getRandomFriendsRelationToYou() {
+        const friendsRelationsToYou: string[] = Object.values(FamilyCrisis)
+        const friendsRelationNumber = getRandomInt(friendsRelationsToYou.length);
+        return friendsRelationsToYou[friendsRelationNumber] as FriendsRelationToYou;
     }
 
     private getRandomFamilyCrisis(): FamilyCrisis {

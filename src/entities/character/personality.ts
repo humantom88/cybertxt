@@ -99,3 +99,16 @@ export enum FamilyCrisis {
     cursed = 'Your family is cursed with a hereditary feud that has lasted for generations.',
     debt = 'You are the inheritor of a family debt; you must honor this debt before moving on with your life.'
 }
+
+export enum FriendsRelationToYou {
+    olderSibling = 'Like an older sibling to you.',
+    youngerSibling = 'Like an younger sibling to you.',
+    teacherOrMentor = 'A teacher or mentor.',
+    partnerOrCoworker = 'A partner or coworker.',
+    former = 'A former lover.',
+    enemy = 'An old enemy',
+    parent = 'Like a parent to you',
+    oldFriend = 'An old childehood friend',
+    street = 'Someone you know fron The Street',
+    commonGoal = 'Somepone with a common interest or goal'
+}
