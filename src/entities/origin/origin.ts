@@ -118,6 +118,23 @@ export interface OriginProps {
     friendsRelationToYou?: FriendsRelationToYou,
 }
 
+enum EnemyRelationToYou {
+    exFriend = 'Ex-friend',
+    exLover = 'Ex-lover',
+    estrangedRelative = 'Estranged Relative',
+    childhoodEnemy = 'Childhood Enemy',
+    personWorkingForYou = 'Person working For You',
+    personYouWorkFor = 'Person you work for',
+    partnerOrCoworker = 'Partner or coworker',
+    corporateExec = 'Corporate exec',
+    governmentOfficial = 'Government official',
+    boosterGanger = 'Boosterganger',
+}
+
+export interface Enemy {
+    relation: EnemyRelationToYou,
+}
+
 export class Origin {
     private generalCulturalRegion: Region;
     private originLanguage: Language;
@@ -125,6 +142,7 @@ export class Origin {
     private childhoodEnvironment: ChildhoodEnvironment;
     private familyCrisis: FamilyCrisis;
     private friendsRelationToYou: FriendsRelationToYou;
+    private enemies: Enemy;
 
     constructor({
         generalCulturalRegion,
@@ -140,6 +158,11 @@ export class Origin {
         this.childhoodEnvironment = childhoodEnvironment ?? this.getRandomChildhoodEnvironment();
         this.familyCrisis = familyCrisis ?? this.getRandomFamilyCrisis();
         this.friendsRelationToYou = friendsRelationToYou ?? this.getRandomFriendsRelationToYou();
+        this.enemies = this.getRandomEnemies()
+    }
+
+    private getRandomEnemies() {
+
     }
 
     private getRandomEnumValue<E extends { [name: string]: any }>(enumType: E) {
