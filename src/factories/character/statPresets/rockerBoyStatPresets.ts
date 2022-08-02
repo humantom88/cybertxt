@@ -1,6 +1,6 @@
-import { Characteristics } from "../../entities/character/types";
+import { Characteristics } from "../../../entities/character/types";
 
-export const rockerInitialCharacteristics: Record<string, Characteristics> = {
+export const rockerBoyStatPresets: Record<string, Characteristics> = {
     1: {
         intelligence: 5,
         reflexes: 8,

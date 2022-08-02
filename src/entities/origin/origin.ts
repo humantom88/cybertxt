@@ -116,6 +116,8 @@ export interface OriginProps {
     originFamily?: OriginalFamilyBackground,
     familyCrisis?: FamilyCrisis,
     friendsRelationToYou?: FriendsRelationToYou,
+    // enemies?: Enemy[],
+    lifeGoal?: LifeGoal,
 }
 
 enum EnemyRelationToYou {
@@ -131,6 +133,19 @@ enum EnemyRelationToYou {
     boosterGanger = 'Boosterganger',
 }
 
+enum LifeGoal {
+    badReputation = "Get rid of a bad reputation.",
+    powerAndControl = 'Gain power and control.',
+    getOffTheStreet = 'Get off The Street no matter what it takes. ',
+    causePain = 'Cause pain and suffering to anyone who crosses you.',
+    liveDownYourPast = 'Live down your past life and try to forget it. ',
+    huntDownResponsible = 'Hunt down those responsible for your miserable life and make them pay.',
+    getWhatYours = "Get what's rightfully yours.",
+    saveSomeOne = 'Save, if possible, anyone else involved in your background, like a lover, or family member.',
+    gainFame = 'Gain fame and recognition.',
+    becomeFeared = 'Become feared and respected.',
+}
+
 export interface Enemy {
     relation: EnemyRelationToYou,
 }
@@ -142,7 +157,8 @@ export class Origin {
     private childhoodEnvironment: ChildhoodEnvironment;
     private familyCrisis: FamilyCrisis;
     private friendsRelationToYou: FriendsRelationToYou;
-    private enemies: Enemy;
+    private lifeGoal: LifeGoal;
+    // private enemies: Enemy[];
 
     constructor({
         generalCulturalRegion,
@@ -151,6 +167,8 @@ export class Origin {
         childhoodEnvironment,
         familyCrisis,
         friendsRelationToYou,
+        // enemies,
+        lifeGoal,
     }: OriginProps = {}) {
         this.generalCulturalRegion = generalCulturalRegion ?? this.getRandomCulturalRegion();
         this.originLanguage = originLanguage ?? this.getRandomOriginLanguage(REGION_LANGUAGE_MAP[this.generalCulturalRegion]);
@@ -158,17 +176,14 @@ export class Origin {
         this.childhoodEnvironment = childhoodEnvironment ?? this.getRandomChildhoodEnvironment();
         this.familyCrisis = familyCrisis ?? this.getRandomFamilyCrisis();
         this.friendsRelationToYou = friendsRelationToYou ?? this.getRandomFriendsRelationToYou();
-        this.enemies = this.getRandomEnemies()
+        // this.enemies = enemies ?? [];
+        this.lifeGoal = lifeGoal ?? this.getRandomLifeGoal();
     }
 
-    private getRandomEnemies() {
-
-    }
-
-    private getRandomEnumValue<E extends { [name: string]: any }>(enumType: E) {
-        const friendsRelationsToYou: string[] = Object.values(enumType);
-        const friendsRelationNumber = getRandomInt(friendsRelationsToYou.length);
-        return friendsRelationsToYou[friendsRelationNumber] as unknown as E;
+    private getRandomLifeGoal() {
+        const lifeGoals: string[] = Object.values(LifeGoal)
+        const lifeGoalNumber = getRandomInt(lifeGoals.length);
+        return lifeGoals[lifeGoalNumber] as LifeGoal;
     }
 
     private getRandomFriendsRelationToYou() {
@@ -200,7 +215,6 @@ export class Origin {
         const originFamilyNumber = getRandomInt(originFamilyChoices.length);
         return originFamilyChoices[originFamilyNumber] as OriginalFamilyBackground;
     }
-
 
     private getRandomOriginLanguage(languages: Language[]): Language {
         const languageNumber = getRandomInt(languages.length);
