@@ -1,13 +1,13 @@
 import { Character } from "../../entities/character/character";
 import { aiming, athletics, concentration, dodge, education, fight, meleeWeapon, perception, persuasion, playingInstrument, streetExpert, understandingPeople } from "../../entities/character/abilities";
-import { CharacterClassName, Characteristics, CharacterProps } from "../../entities/character/types";
+import { Role, Characteristics, CharacterProps } from "../../entities/character/types";
 import { BaseCharacterFactory } from "./baseCharacterFactory";
 import { rockerBoyStatPresets } from "./statPresets/rockerBoyStatPresets";
 import { getRandomInt } from "../../utils";
 import { ArmorFactory } from "../armor/armorFactory";
 import { ArmorType } from "../armor/types";
-import { FightImplantFactory, PistolFactory } from "../weapon/weaponFactory";
-import { WeaponType } from "../weapon/types";
+import { PistolFactory } from "../weapon/weaponFactory";
+import { WeaponModel } from "../weapon/types";
 import { fixerStatPresets } from "./statPresets/fixerPresets";
 import { soloStatPresets } from "./statPresets/soloStatPresets";
 import { nomandStatPresets } from "./statPresets/nomadStatPresets";
@@ -17,7 +17,7 @@ import { netRunnerPresets } from "./statPresets/netRunnerPresets";
 export class CharacterFactory extends BaseCharacterFactory {
     private makeRandomCharacterByRole(
         name: string,
-        role: CharacterClassName,
+        role: Role,
         statPresets: Record<string, Characteristics>
     ): Character {
         return this.make({
@@ -50,8 +50,8 @@ export class CharacterFactory extends BaseCharacterFactory {
             characteristics: statPresets[getRandomInt(6)],
             // Armor
             armor: new ArmorFactory().makeArmor(ArmorType.kevlar),
-            primaryWeapon: new PistolFactory().makePistol(WeaponType.heavyPistol),
-            secondaryWeapon: new FightImplantFactory().makeSliceAndDice(WeaponType.sliceAndDice),
+            primaryWeapon: new PistolFactory().makePistol(WeaponModel.heavyPistol),
+            secondaryWeapon: null,
             //implants: [],
             // inventory: [
 
@@ -60,26 +60,26 @@ export class CharacterFactory extends BaseCharacterFactory {
     }
 
     public makeRocker({ name }: Pick<CharacterProps, 'name'>): Character {
-        return this.makeRandomCharacterByRole(name, CharacterClassName.rocker, rockerBoyStatPresets);
+        return this.makeRandomCharacterByRole(name, Role.rocker, rockerBoyStatPresets);
     }
 
     public makeFixer({ name }: Pick<CharacterProps, 'name'>): Character {
-        return this.makeRandomCharacterByRole(name, CharacterClassName.fixer, fixerStatPresets);
+        return this.makeRandomCharacterByRole(name, Role.fixer, fixerStatPresets);
     }
 
     public makeSolo({ name }: Pick<CharacterProps, 'name'>): Character {
-        return this.makeRandomCharacterByRole(name, CharacterClassName.solo, soloStatPresets);
+        return this.makeRandomCharacterByRole(name, Role.solo, soloStatPresets);
     }
 
     public makeNomad({ name }: Pick<CharacterProps, 'name'>): Character {
-        return this.makeRandomCharacterByRole(name, CharacterClassName.nomad, nomandStatPresets);
+        return this.makeRandomCharacterByRole(name, Role.nomad, nomandStatPresets);
     }
 
     public makeTech({ name }: Pick<CharacterProps, 'name'>): Character {
-        return this.makeRandomCharacterByRole(name, CharacterClassName.tech, techStatPresets);
+        return this.makeRandomCharacterByRole(name, Role.tech, techStatPresets);
     }
 
     public makeNetRunner({ name }: Pick<CharacterProps, 'name'>): Character {
-        return this.makeRandomCharacterByRole(name, CharacterClassName.netrunner, netRunnerPresets);
+        return this.makeRandomCharacterByRole(name, Role.netrunner, netRunnerPresets);
     }
 }

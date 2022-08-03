@@ -1,0 +1,9 @@
+{
+    "character.role": "Роль",
+    "character.role.fixer": "Фиксер",
+    "character.role.rockerboy": "Рокер",
+    "character.role.nomad": "Кочевник",
+    "character.role.solo": "Соло",
+    "character.role.tech": "Техник",
+    "character.role.netrunner": "Нетраннер"
+}

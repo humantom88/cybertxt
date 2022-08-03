@@ -1,19 +1,20 @@
 import { Armor } from '../../factories/armor/types';
-import { Weapon } from '../../factories/weapon/types';
+import { Weapon, WeaponModel, WeaponType } from '../../factories/weapon/types';
 import { Origin } from '../origin/origin';
 import { MostValuedPerson, MostValuedProfessionYouOwn, Motivation, OriginalFamilyBackground, Personality, Relationship } from './personality';
 import { PersonalStyle } from './personalStyle';
 import {
     Ability,
-    CharacterClassName,
+    Role,
     Characteristics,
     CharacterProps,
-    Injury
+    Injury,
+    AttackResult
 } from './types';
 
 export class Character implements CharacterProps {
     name: string;
-    characterClass: CharacterClassName;
+    characterClass: Role;
     characteristics: Characteristics;
     abilities: Set<Ability>;
     basicHealth: number;
@@ -82,5 +83,12 @@ export class Character implements CharacterProps {
         this.habits = habits;
         this.specials = specials;
         this.armor = armor;
+    }
+
+    attack(
+        enemy: CharacterProps,
+        weapon: Weapon,
+    ): AttackResult {
+        
     }
 }

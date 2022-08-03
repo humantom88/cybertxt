@@ -1,0 +1,9 @@
+{
+    "character.role": "Role",
+    "character.role.fixer": "Fixer",
+    "character.role.rockerboy": "Rockerboy",
+    "character.role.nomad": "Nomad",
+    "character.role.solo": "Solo",
+    "character.role.tech": "Tech",
+    "character.role.netrunner": "Netrunner"
+}

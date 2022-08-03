@@ -1,10 +1,17 @@
-export enum WeaponType {
+
+export enum WeaponModel {
     sliceAndDice = 'sliceAndDice',
     heavyPistol = 'heavyPistol',
 }
 
-export interface Weapon {
+export enum WeaponType {
+    melee,
+    gun
+}
+
+export interface IWeapon {
+    weaponModel: WeaponModel;
     weaponType: WeaponType;
-    minDamage: number;
-    maxDamage: number;
+    damageDice: number;
+    damageDiceCount: number;
 }

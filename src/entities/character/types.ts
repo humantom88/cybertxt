@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import { Armor } from "../../factories/armor/types";
 import { Weapon } from "../../factories/weapon/types";
 import { Origin } from "../origin/origin";
@@ -11,15 +12,15 @@ import {
 } from "./personality";
 import { PersonalStyle } from "./personalStyle";
 
-export enum CharacterClassName {
-    rocker = 'rocker',
-    fixer = 'fixer',
-    journalist = 'journalist',
-    cop = 'cop',
-    solo = 'solo',
-    nomad = 'nomad',
-    netrunner = 'netrunner',
-    tech = 'tech',
+export enum Role {
+    rocker,
+    fixer,
+    journalist,
+    cop,
+    solo,
+    nomad,
+    netrunner,
+    tech,
 }
 
 export interface Characteristics {
@@ -47,9 +48,16 @@ export interface Ability {
     bonus: number;
 }
 
+export interface AttackResult {
+    targetId: number;
+    attackDice: number;
+    protectionDice: number;
+    damageDice: number;
+}
+
 export interface CharacterProps {
     name: string;
-    characterClass: CharacterClassName;
+    characterClass: Role;
     characteristics: Characteristics;
     abilities: Set<Ability>;
     basicHealth: number;
@@ -74,5 +82,6 @@ export interface CharacterProps {
     primaryWeapon: Weapon;
     secondaryWeapon: Weapon;
 
+    attack(enemy: CharacterProps): AttackResult;
 }
 
