@@ -1,4 +1,3 @@
-
 export enum WeaponModel {
     sliceAndDice = 'sliceAndDice',
     heavyPistol = 'heavyPistol',

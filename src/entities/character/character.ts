@@ -1,5 +1,5 @@
 import { Armor } from '../../factories/armor/types';
-import { Weapon, WeaponModel, WeaponType } from '../../factories/weapon/types';
+import { IWeapon, WeaponModel, WeaponType } from '../../factories/weapon/types';
 import { Origin } from '../origin/origin';
 import { MostValuedPerson, MostValuedProfessionYouOwn, Motivation, OriginalFamilyBackground, Personality, Relationship } from './personality';
 import { PersonalStyle } from './personalStyle';
@@ -13,6 +13,7 @@ import {
 } from './types';
 
 export class Character implements CharacterProps {
+    uid: string;
     name: string;
     characterClass: Role;
     characteristics: Characteristics;
@@ -36,10 +37,11 @@ export class Character implements CharacterProps {
     habits: string[];
     specials: string[];
     armor: Armor;
-    primaryWeapon: Weapon;
-    secondaryWeapon: Weapon;
+    primaryWeapon: IWeapon;
+    secondaryWeapon: IWeapon;
 
-    constructor({ 
+    constructor({
+        uid,
         name,
         characterClass,
         characteristics,
@@ -62,6 +64,7 @@ export class Character implements CharacterProps {
         specials,
         armor,
     }: CharacterProps) {
+        this.uid = uid;
         this.name = name;
         this.characterClass = characterClass;
         this.characteristics = characteristics;
@@ -83,12 +86,19 @@ export class Character implements CharacterProps {
         this.habits = habits;
         this.specials = specials;
         this.armor = armor;
+
+        this.attack = this.attack.bind(this);
     }
 
     attack(
         enemy: CharacterProps,
-        weapon: Weapon,
+        weapon: IWeapon,
     ): AttackResult {
-        
+        return {
+            targetUid: enemy.uid,
+            attackDice: 12,
+            damageDice: 6,
+            protectionDice: 6,
+        };
     }
 }

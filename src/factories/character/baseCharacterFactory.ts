@@ -1,5 +1,6 @@
 import { Character } from "../../entities/character/character";
 import { CharacterProps } from "../../entities/character/types";
+import { generateUUID } from "../../utils";
 import { OriginFactory } from "../origin";
 import { PersonalityFactory } from "../personality";
 import { PersonalStyleFactory } from "../personalStyle";
@@ -30,7 +31,8 @@ export abstract class BaseCharacterFactory {
         primaryWeapon,
         secondaryWeapon,
     }: Partial<CharacterProps>): Character {
-        return new Character({ 
+        return new Character({
+            uid: generateUUID(),
             name,
             characterClass,
             characteristics,

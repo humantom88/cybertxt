@@ -1,6 +1,6 @@
 import { t } from 'i18next';
 import { Armor } from "../../factories/armor/types";
-import { Weapon } from "../../factories/weapon/types";
+import { IWeapon } from "../../factories/weapon/types";
 import { Origin } from "../origin/origin";
 import {
     MostValuedPerson,
@@ -49,13 +49,14 @@ export interface Ability {
 }
 
 export interface AttackResult {
-    targetId: number;
+    targetUid: string;
     attackDice: number;
     protectionDice: number;
     damageDice: number;
 }
 
 export interface CharacterProps {
+    uid: string,
     name: string;
     characterClass: Role;
     characteristics: Characteristics;
@@ -79,9 +80,7 @@ export interface CharacterProps {
     habits: string[];
     specials: string[];
     armor: Armor;
-    primaryWeapon: Weapon;
-    secondaryWeapon: Weapon;
-
-    attack(enemy: CharacterProps): AttackResult;
+    primaryWeapon: IWeapon;
+    secondaryWeapon: IWeapon;
 }
 
