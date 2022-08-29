@@ -13,14 +13,16 @@ import {
 import { PersonalStyle } from "./personalStyle";
 
 export enum Role {
-    rocker,
-    fixer,
-    journalist,
-    cop,
+    rockerboy,
     solo,
-    nomad,
     netrunner,
     tech,
+    medtech,
+    media,
+    exec,
+    lawman,
+    fixer,
+    nomad,
 }
 
 export interface Characteristics {
