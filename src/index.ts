@@ -1,7 +1,6 @@
 import * as i18next from 'i18next';
 
 import {resources} from './locales';
-
 import { CharacterFactory } from "./factories/character/characterFactory";
 
 i18next.init({
@@ -12,7 +11,7 @@ i18next.init({
 
 const characterFactory = new CharacterFactory();
 
-const character = characterFactory.makeFixer({ name: 'Grease' })
+const character = characterFactory.makeFixer({ name: 'Grease' });
 
-console.log(character)
-console.log(i18next.t("character.role"))
+console.log(character);
+console.log(i18next.t("character.role"));
