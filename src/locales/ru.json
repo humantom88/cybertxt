@@ -1,9 +1,23 @@
 {
     "character.role": "Роль",
     "character.role.fixer": "Фиксер",
-    "character.role.rockerboy": "Рокер",
+    "character.role.netrunner": "Нетраннер",
     "character.role.nomad": "Кочевник",
+    "character.role.rockerboy": "Рокер",
     "character.role.solo": "Соло",
     "character.role.tech": "Техник",
-    "character.role.netrunner": "Нетраннер"
+    "game.menu.choose": "Выберите вариант и укажите выбранный номер: ",
+    "game.menu.exit.title": "Вы точно хотите выйти?",
+    "game.menu.title": "Добро пожаловать в Night City",
+    "game.menu.main.option.1": "Новая игра",
+    "game.menu.main.option.2": "Загрузить игру",
+    "game.menu.main.option.3": "Выход",
+    "game.menu.newGame.option.1": "Быстрое создание персонажей",
+    "game.menu.newGame.option.2": "Создание персонажей",
+    "game.menu.newGame.option.3": "Назад",
+    "game.menu.presetCharacter.choose.role": "Выберите роль:",
+    "game.menu.presetCharacter.name.enter": "Введите имя персонажа",
+    "in.development": "В разработке...",
+    "no": "Нет",
+    "yes": "Да"
 }

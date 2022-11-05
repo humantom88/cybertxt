@@ -1,7 +1,13 @@
 import { Armor } from '../../factories/armor/types';
-import { IWeapon, WeaponModel, WeaponType } from '../../factories/weapon/types';
+import { IWeapon } from '../../factories/weapon/types';
 import { Origin } from '../origin/origin';
-import { MostValuedPerson, MostValuedProfessionYouOwn, Motivation, OriginalFamilyBackground, Personality, Relationship } from './personality';
+import {
+    MostValuedPerson,
+    MostValuedProfessionYouOwn,
+    Motivation,
+    Personality,
+    Relationship
+} from './personality';
 import { PersonalStyle } from './personalStyle';
 import {
     Ability,
