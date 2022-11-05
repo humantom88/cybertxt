@@ -60,7 +60,7 @@ export class CharacterFactory extends BaseCharacterFactory {
     }
 
     public makeRocker({ name }: Pick<CharacterProps, 'name'>): Character {
-        return this.makeRandomCharacterByRole(name, Role.rocker, rockerBoyStatPresets);
+        return this.makeRandomCharacterByRole(name, Role.rockerboy, rockerBoyStatPresets);
     }
 
     public makeFixer({ name }: Pick<CharacterProps, 'name'>): Character {
